@@ -17,8 +17,9 @@ FA = 0;
 FH = 60/2;
 
 //poppy();
-poppy_s();
+//poppy_s();
 //fountain();
+lily();
 
 module poppy()
 {
@@ -85,4 +86,26 @@ difference()
     translate([-100, -100/2, 40]) rotate([0, 0, 0]) cube([100, 100, 100]);
 }
 }
+
+
+
+module lily()
+{
+difference()
+{   
+    union()
+    {
+        color("blue") translate([0, 0, PRB/2]) rotate([0, 90, 0]) cylinder(r=PRB/2, h=20, $fn=100);
+        rotate([0, -90-FA, 0]) translate([PRB/2, 0, 0]) cylinder(r=PRB/2, h=FH, $fn=100);
+        
+        translate([-55, 0, PRB/2]) scale([1.8, 1, 1]) sphere(r=60/2, $fn=100);
+    }
+    translate([0, 0, PRB/2]) rotate([0, 90, 0]) cylinder(r1=PR/2, r2=PR/2+0.5, h=20+gap2, $fn=100);
+    rotate([0, -90-FA, 0]) translate([PRB/2, 0, 0]) cylinder(r=PR/2, h=FH+gap2, $fn=100);
+    
+    translate([-55, 0, PRB/2]) scale([1.8, 1, 1]) sphere(r=60/2-th, $fn=100);
+    translate([-80, -100/2, -30]) rotate([0, -60, 0]) cube([100, 100, 100]);
+}
+}
+
 
